@@ -63,4 +63,7 @@ dependencies {
     implementation 'com.snatik:storage:2.1.0'
     implementation 'gun0912.ted:tedpermission:2.0.3'
     implementation project(':JabraSdk-1_0_0-A1000099-N1_0_12_0-release')
+    implementation 'com.facebook.android:facebook-share:[4,5)'
+
+
 }

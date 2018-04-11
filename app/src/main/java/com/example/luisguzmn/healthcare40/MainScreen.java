@@ -1,15 +1,8 @@
 package com.example.luisguzmn.healthcare40;
 
-import android.Manifest;
-import android.app.Activity;
 import android.bluetooth.BluetoothDevice;
-import android.bluetooth.BluetoothManager;
-import android.bluetooth.BluetoothProfile;
-import android.content.BroadcastReceiver;
-import android.content.Context;
 import android.content.Intent;
 
-import android.content.IntentFilter;
 import android.content.SharedPreferences;
 
 import android.graphics.PorterDuff;
@@ -20,8 +13,6 @@ import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
-import android.widget.ListView;
-import java.util.ArrayList;
 import android.view.View;
 
 
@@ -34,12 +25,10 @@ import com.mikepenz.materialdrawer.model.DividerDrawerItem;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.ProfileDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
-import android.support.annotation.RequiresApi;
+
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothClass;
 import android.graphics.Color;
-
-import android.util.Log;
 
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -48,7 +37,6 @@ import android.view.MenuItem;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.mikepenz.materialdrawer.util.AbstractDrawerImageLoader;
@@ -155,6 +143,11 @@ public class MainScreen extends AppCompatActivity {
                         // do something with the clicked item :D
                         if (position == 2) {
                             Intent intent = new Intent(MainScreen.this, Profile.class);
+                            startActivity(intent);
+                            overridePendingTransition(R.anim.left_in, R.anim.left_out);
+                        }
+                        if (position == 4){
+                            Intent intent = new Intent(MainScreen.this, Statistics.class);
                             startActivity(intent);
                             overridePendingTransition(R.anim.left_in, R.anim.left_out);
                         }
