@@ -35,7 +35,7 @@
         <activity android:name=".Profile" />
         <activity android:name=".Bluetooth" />
         <activity android:name=".Dashboard_helo" />
-        <activity android:name=".crearCuentaHelo" />
+        <activity android:name=".Dashboard_helo$crearCuentaHelo" />
         <activity android:name=".Helo.PinActivity" />
         <activity android:name=".PrincipalDashboard">
             <intent-filter>
@@ -44,7 +44,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Helo.HeloConnection"></activity>
+        <activity android:name=".Helo.HeloConnection" />
+        <activity android:name=".UploadImage" />
+        <activity android:name=".JabraSP"></activity>
+
+        <meta-data
+            android:name="JabraAppId"
+            android:value="TWu93ao7EPvFRWriN0NPDx+YugSAKvCkyUdzpPx7gEM=" />
     </application>
 
 </manifest>

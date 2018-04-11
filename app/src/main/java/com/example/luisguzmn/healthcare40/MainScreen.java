@@ -13,6 +13,8 @@ import android.content.IntentFilter;
 import android.content.SharedPreferences;
 
 import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Build;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
@@ -49,6 +51,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.airbnb.lottie.LottieAnimationView;
+import com.mikepenz.materialdrawer.util.AbstractDrawerImageLoader;
+import com.mikepenz.materialdrawer.util.DrawerImageLoader;
 import com.squareup.picasso.Picasso;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -117,7 +121,7 @@ public class MainScreen extends AppCompatActivity {
                 .withActivity(this)
                 .addProfiles(
                         new ProfileDrawerItem().withName(g.getName()).
-                                withEmail(g.getEmail()).withIcon(getDrawable(R.drawable.profile)))
+                                withEmail(g.getEmail()).withIcon("http://meddata.sytes.net/newuser/profileImg/" + g.getImage()))
                 .withSelectionListEnabledForSingleProfile(false).withHeaderBackground(R.drawable.header)
                 .build();
         //if you want to update the items at a later time it is recommended to keep it in a variable
@@ -154,11 +158,30 @@ public class MainScreen extends AppCompatActivity {
                             startActivity(intent);
                             overridePendingTransition(R.anim.left_in, R.anim.left_out);
                         }
+                        if (position == 3) {
+                            Intent intent = new Intent(MainScreen.this, UploadImage.class);
+                            startActivity(intent);
+                            overridePendingTransition(R.anim.left_in, R.anim.left_out);
+                        }
 
                         return false;
                     }
                 })
                 .build();
+
+        //Image Menu
+        DrawerImageLoader.init(new AbstractDrawerImageLoader() {
+            GlobalVars g = (GlobalVars) getApplication();
+            @Override
+            public void set(ImageView imageView, Uri uri, Drawable placeholder) {
+                Picasso.with(imageView.getContext()).load("http://meddata.sytes.net/newuser/profileImg/" + g.getImage())
+                        .placeholder(placeholder).into(imageView);
+            }
+            @Override
+            public void cancel(ImageView imageView) {
+                Picasso.with(imageView.getContext()).cancelRequest(imageView);
+            }
+        });
 
         //-------------------------------------------------------------------------------------------
         //MENU

@@ -3,7 +3,6 @@ package com.example.luisguzmn.healthcare40.Helo;
 import android.Manifest;
 
 import android.app.AlertDialog;
-import android.app.ProgressDialog;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothManager;
 import android.content.BroadcastReceiver;
@@ -29,7 +28,6 @@ import android.widget.Toast;
 
 import com.example.luisguzmn.healthcare40.PrincipalDashboard;
 import com.example.luisguzmn.healthcare40.R;
-import com.example.luisguzmn.healthcare40.crearCuentaHelo;
 import com.gun0912.tedpermission.PermissionListener;
 import com.gun0912.tedpermission.TedPermission;
 import com.worldgn.connector.Connector;
@@ -37,14 +35,7 @@ import com.worldgn.connector.DeviceItem;
 
 import com.worldgn.connector.ScanCallBack;
 
-import org.w3c.dom.Text;
-
-import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
-
-
 
 
 public class HeloConnection extends AppCompatActivity implements ScanCallBack {

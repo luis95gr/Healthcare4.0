@@ -6,18 +6,15 @@ import android.bluetooth.BluetoothDevice;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.preference.DialogPreference;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.luisguzmn.healthcare40.Helo.HeloConnection;
@@ -40,6 +37,7 @@ public class Bluetooth extends AppCompatActivity {
     SharedPreferences infoBluetooth;
     SharedPreferences spLogin;
     Button buttonHelo;
+    Button buttonSP;
     //
 
     @Override
@@ -58,6 +56,7 @@ public class Bluetooth extends AppCompatActivity {
         list = (ListView) findViewById(R.id.viewlist);
         bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
         buttonHelo = (Button)findViewById(R.id.buttonHelo);
+        buttonSP = (Button)findViewById(R.id.buttonJabra);
         //
 
         if (bluetoothAdapter == null) {
@@ -115,11 +114,18 @@ public class Bluetooth extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(spLogin.getBoolean("success",false)==false) {
-                    Intent intent = new Intent(Bluetooth.this, crearCuentaHelo.class);
+                    Intent intent = new Intent(Bluetooth.this, Dashboard_helo.crearCuentaHelo.class);
                     startActivity(intent);
                 }else {
                     startActivity(new Intent(Bluetooth.this, HeloConnection.class));
                 }
+            }
+        });
+        buttonSP.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Bluetooth.this, JabraSP.class);
+                startActivity(intent);
             }
         });
 
