@@ -180,6 +180,11 @@ public class Profile extends AppCompatActivity {
                             startActivity(intent);
                             overridePendingTransition(R.anim.left_in, R.anim.left_out);
                         }
+                        if (position == 4){
+                            Intent intent = new Intent(Profile.this, Statistics.class);
+                            startActivity(intent);
+                            overridePendingTransition(R.anim.left_in, R.anim.left_out);
+                        }
 
                         return false;
                     }

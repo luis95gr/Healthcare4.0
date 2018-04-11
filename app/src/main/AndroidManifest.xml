@@ -66,6 +66,17 @@
         <meta-data
             android:name="JabraAppId"
             android:value="TWu93ao7EPvFRWriN0NPDx+YugSAKvCkyUdzpPx7gEM=" />
+        <activity android:name=".Helo.HeloConnection" />
+
+        <provider
+            android:name="com.facebook.FacebookContentProvider"
+            android:authorities="com.facebook.app.FacebookContentProvider593253451027552"
+            android:exported="true" />
+
+        <activity android:name=".Statistics" />
+        <activity android:name=".PopUp"
+            android:theme="@style/AppTheme.CustomTheme"
+        />
     </application>
 
 </manifest>
